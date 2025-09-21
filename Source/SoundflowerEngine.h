@@ -56,6 +56,9 @@ class SoundflowerEngine : public IOAudioEngine
     bool				duringHardwareInit;
     
 	float             logTable[100] ; // Lookup for logarithmic volume scaling.
+#if TARGET_OS_OSX && TARGET_CPU_ARM64
+    bool               driverDesiresHiResSampleIntervals(void) override;
+#endif
 
 	
 public:

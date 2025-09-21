@@ -660,3 +660,7 @@ IOReturn SoundflowerEngine::convertInputSamples(const void *sampleBuf, void *des
 	
     return kIOReturnSuccess;
 }
+
+#if TARGET_OS_OSX && TARGET_CPU_ARM64
+bool SoundflowerEngine::driverDesiresHiResSampleIntervals(void) { return true; }
+#endif
